@@ -1,0 +1,1 @@
+Just a heads up. In the app lab, click on the image of Colonel Campbell in Ending 3.
