@@ -1,0 +1,31 @@
+div {
+    font-family: fantasy, 'Courier New', Courier, monospace, Georgia, 'Times New Roman', Times, serif;
+    color: rgb(0, 13, 255);
+    background-color: black;
+}
+span {
+    font-family: fantasy, 'Courier New', Courier, monospace, Georgia, 'Times New Roman', Times, serif;
+    color: magenta;
+    background-color: black;
+    font-size: x-large;
+}
+
+.theClass{
+    font-size: 30px;
+    color:aquamarine;
+    background-color:black;
+    font-weight: bold;
+}
+
+#papersplease{
+    font-size: 30px;
+    color:rgb(201, 100, 18);
+    background-color:black;
+    font-weight: bold;
+}
+.Btn{
+    font-size: 30px;
+    color:rgb(0, 255, 153);
+    font-weight: bold;
+    background-color: black;
+}
