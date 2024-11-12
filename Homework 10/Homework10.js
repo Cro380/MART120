@@ -23,9 +23,9 @@ function draw()
     //head
     strokeWeight(10)
     fill(10, 150, 0);
-    square(headX,45,100);
+    square(headX,headY,100);
     headX+=headDirection;
-    if(headX >= 0|| headX <= 250);
+    if(headX >= 300 || headX <= 50);
         {
             headDirection *=-1;
         }
