@@ -30,7 +30,7 @@ function draw()
     stroke(0);
     fill(0);
     //functions
-    createBorders();
+    createBorders(10);
     characterMovement();
     drawCharacter();
     createEXIT();
@@ -132,12 +132,12 @@ function createCharacter(x,y)
     characterY = y;
 }
 
-function createBorders()
+function createBorders(thickness)
 {
-    rect(0,0,width,10);
-    rect(0,0,10,height);
-    rect(0, height-10,width, 10);
-    rect(width-10,0,10,height-50);
+    rect(0,0,width,thickness);
+    rect(0,0,thickness,height);
+    rect(0, height-thickness,width, thickness);
+    rect(width-thickness,0,thickness,height-50);
 }
 
 function mouseClicked()
