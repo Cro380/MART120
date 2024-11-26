@@ -1,12 +1,12 @@
 //varibles
-var MyX = [];
-var MyY = [];
+var x = 300
+var y = 450
 var diameter = [];
 //character & controller variables
 var characterX = 100;
 var characterY = 100;
-var shapeX = 30;
-var shapeY = 50;
+var shapeX = [];
+var shapeY = [];
 var shapeXSpeed = [];
 var shapeYSpeed = [];
 var w = 87;
@@ -19,16 +19,15 @@ var mouseShapeY = 100;
 //fucntions & canvas
 function setup()
 {
-    createCanvas(800,800);
     for (var i = 0; i < 50; i++){
-    shapeXSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    shapeYSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    shapeX[i] = getRandomNumber(0);
-    shapeY[i] = getRandomNumber(0);
-    diameter[i] = getRandomNumber(30);
+        createCanvas(800,800);
+        shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeX[i] = getRandomNumber(800);
+        shapeY[i] = getRandomNumber(800);
+        diameter[i] = getRandomNumber(50);
     }
-
-    createCharacter(200,400);
+        createCharacter(200,400);
 }
 function draw()
 {
@@ -42,7 +41,32 @@ function draw()
     createEXIT();
     createWIN();
     drawMouseshape();
-    drawEnemy();
+    fill(300,300,80);
+    for (var i = 0; i < 80; i++){
+        circle(shapeX[i], shapeY[i], diameter[i]);
+        shapeXSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeYSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        //move the shape
+        shapeX[i] += shapeXSpeed[i];
+        shapeY[i] += shapeYSpeed[i];
+
+        if(shapeX[i] > width)
+        {
+            shapeX[i] = 0;
+        }
+        if(shapeX[i] < 0)
+        {
+            shapeX[i] = width;
+        }
+        if(shapeY[i] > height)
+        {
+            shapeY[i] = 0;
+        }
+        if(shapeY[i] < 0)
+        {
+            shapeY[i] = height;
+        }
+    }
 }
 
 function characterMovement()
@@ -92,35 +116,6 @@ function createEXIT()
     text("EXIT", width-50,height-50)
 }
 
-function drawEnemy()
-{
-    console.log();
-    fill(300,300,80);
-   for (var i = 0; i < shapeX.length; i++){
-        circle(shapeX[i], shapeY[i], diameter[i]);
-        shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-        shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-    //move the shape
-        shapeX[i] += shapeXSpeed[i];
-        shapeY[i] += shapeYSpeed[i];
-        if(shapeX[i] > width)
-        {
-            shapeX[i] = 0;
-        }
-            if(shapeX[i] < 0)
-        {
-            shapeX[i] = width;
-        }
-        if(shapeY[i] > height)
-        {
-            shapeY[i] = 0;
-        }
-        if(shapeY[i] < 0)
-        {
-            shapeY[i] = height;
-        }
-    } 
-}
 
 function drawCharacter()
 {
@@ -132,8 +127,8 @@ function createCharacter(x,y)
 {
     //character
     console.log(characterX);
-    characterX = MyX;
-    characterY = MyY;
+    characterX = x;
+    characterY = y;
 }
 
 function createBorders(thickness)
@@ -149,7 +144,7 @@ function mouseClicked()
     mouseShapeX = mouseX;
     mouseShapeY = mouseY;
 }
-function getRandomNumber(number)
-{
-    return Math.floor(Math.random() * number);
+
+function getRandomNumber(number) {
+    return Math.floor(Math.random() * number) + 10;
 }
