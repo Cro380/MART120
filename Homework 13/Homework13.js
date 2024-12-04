@@ -21,8 +21,8 @@ function setup()
 {
     for (var i = 0; i < 50; i++){
         createCanvas(800,800);
-        shapeXSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-        shapeYSpeed = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeXSpeed[i] = Math.floor(Math.random() * 5) + 1;
+        shapeYSpeed[i] = Math.floor(Math.random() * 5) + 1;
         shapeX[i] = getRandomNumber(800);
         shapeY[i] = getRandomNumber(800);
         diameter[i] = getRandomNumber(50);
@@ -41,11 +41,11 @@ function draw()
     createEXIT();
     createWIN();
     drawMouseshape();
-    fill(300,300,80);
-    for (var i = 0; i < 80; i++){
+    fill(200,200,160);
+    for (var i = 0; i < 50; i++){
         circle(shapeX[i], shapeY[i], diameter[i]);
-        shapeXSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
-        shapeYSpeed[i] = Math.floor(Math.random() * (Math.floor(Math.random() * 5)) + 1);
+        shapeXSpeed[i] = Math.floor(Math.random() * 5) + 1;
+        shapeYSpeed[i] = Math.floor(Math.random() * 5) + 1;
         //move the shape
         shapeX[i] += shapeXSpeed[i];
         shapeY[i] += shapeYSpeed[i];
@@ -146,5 +146,5 @@ function mouseClicked()
 }
 
 function getRandomNumber(number) {
-    return Math.floor(Math.random() * number) + 10;
+    return Math.floor(Math.random() * number);
 }
